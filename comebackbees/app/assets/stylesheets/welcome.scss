@@ -1,0 +1,96 @@
+// TODO stop divs from overlapping
+// TODO border/frame content
+// TODO elect friendlier color scheme
+// TODO accessibility
+// TODO 
+
+
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin center($x_pos: "center", $y_pos: "center") {
+  position: absolute;
+
+  @if ($y_pos == "top") {
+    top: 0%;
+  } @else if ($y_pos == "center") {
+    top: 50%;
+  } @else if ($y_pos == "bottom") {
+    bottom: 0%;
+  }
+
+  @if ($x_pos == "left") {
+    left: 0%;
+  } @else if ($x_pos == "center") {
+    left: 50%;
+  } @else if ($x_pos == "right") {
+    right: 0%;
+  } 
+}
+
+.parent {
+  position: relative;
+  background: #f06d06;
+  width: 99%;
+  height: 100vh;
+  // margin: 20px auto;
+  max-width: 70em;
+
+}
+
+.banner {
+    @extend .parent;
+    height: 200px;
+}
+
+.child {
+  background: white;
+  padding: 20px;
+
+  &.top_left {
+    @include center("left", "top");
+  }
+
+  &.top_center {
+    @include center("center", "top")
+  }
+
+  &.top_right {
+    @include center("right", "top");
+  }
+
+  &.center_left {
+    @include center("left", "center");
+  }
+
+  &.center_center {
+    @include center("center", "center")
+  }
+
+  &.center_right {
+    @include center("right", "center");
+  }
+
+  &.bottom_left {
+    @include center("left", "bottom");
+  }
+
+  &.bottom_center {
+    @include center("center", "bottom")
+  }
+
+  &.bottom_right {
+    @include center("right", "bottom");
+  }
+}
+
+.h2 {
+    font-size: 10px;
+}
+
+
+
+body {
+  background: papayawhip;
+}
